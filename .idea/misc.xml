@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_incrementar.xml" value="0.107" />
+        <entry key="app/src/main/res/drawable/ic_volver_atras.xml" value="0.107" />
+        <entry key="app/src/main/res/layout/activity_camarero.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_chef.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/home_cliente.xml" value="0.1" />
         <entry key="app/src/main/res/layout/inicio_sesion.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_lista_producto.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/listado_productos.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/platillos_carrito.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/splash_screen.xml" value="0.1921875" />
       </map>
     </option>
