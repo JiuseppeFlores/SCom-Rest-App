@@ -81,14 +81,18 @@ public class InicioSesion extends AppCompatActivity {
                                         switch(tipoUsuario){
                                             case "cliente":
                                                 Toast.makeText(InicioSesion.this, "Tipo de usuario: CLIENTE", Toast.LENGTH_SHORT).show();
-                                                Intent cliente = new Intent(InicioSesion.this, MainActivity.class);
+                                                Intent cliente = new Intent(InicioSesion.this, HomeCliente.class);
                                                 startActivity(cliente);
                                                 break;
                                             case "chef":
                                                 Toast.makeText(InicioSesion.this, "Tipo de usuario: CHEF", Toast.LENGTH_SHORT).show();
+                                                Intent chef = new Intent(InicioSesion.this, HomeChef.class);
+                                                startActivity(chef);
                                                 break;
                                             case "camarero":
                                                 Toast.makeText(InicioSesion.this, "Tipo de usuario: CAMARERO", Toast.LENGTH_SHORT).show();
+                                                Intent camarero = new Intent(InicioSesion.this, HomeCamarero.class);
+                                                startActivity(camarero);
                                                 break;
                                         }
                                     }

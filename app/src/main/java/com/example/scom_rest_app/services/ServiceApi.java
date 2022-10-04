@@ -4,6 +4,7 @@ import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
+import retrofit.http.GET;
 import retrofit.http.POST;
 
 public interface ServiceApi {
@@ -14,4 +15,15 @@ public interface ServiceApi {
             @Field("password") String password,
             Callback<Response> response
     );
+
+    @GET("/productos")
+    public void obtenerProductos(
+            Callback<Response> response
+    );
+
+    @GET("/pedidos")
+    public void obtenerPedidos(
+            Callback<Response> response
+    );
+
 }
