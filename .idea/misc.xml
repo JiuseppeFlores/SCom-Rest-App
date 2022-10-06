@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/backg_input.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/ic_incrementar.xml" value="0.107" />
         <entry key="app/src/main/res/drawable/ic_volver_atras.xml" value="0.107" />
         <entry key="app/src/main/res/layout/activity_camarero.xml" value="0.1" />
@@ -16,7 +17,7 @@
         <entry key="app/src/main/res/layout/home_camarero.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/home_chef.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/home_cliente.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/inicio_sesion.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/inicio_sesion.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_lista_pedido.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_lista_producto.xml" value="0.33" />
         <entry key="app/src/main/res/layout/listado_productos.xml" value="0.19322916666666667" />

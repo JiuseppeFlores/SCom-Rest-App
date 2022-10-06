@@ -26,4 +26,11 @@ public interface ServiceApi {
             Callback<Response> response
     );
 
+    @FormUrlEncoded
+    @POST("/cliente")
+    public void crearCuenta(
+            @Field("user") String user,
+            @Field("password") String password,
+            Callback<Response> response
+    );
 }

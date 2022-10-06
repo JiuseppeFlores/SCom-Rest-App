@@ -28,7 +28,6 @@ import retrofit.client.Response;
 
 public class InicioSesion extends AppCompatActivity {
 
-    CardView panelInicioSesion;
     CircularProgressIndicator cpiCargando;
 
     TextInputEditText etUsuario;
@@ -43,7 +42,6 @@ public class InicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicio_sesion);
 
-        panelInicioSesion = findViewById(R.id.panel_inicio_sesion);
         cpiCargando = findViewById(R.id.cpi_cargando);
 
         etUsuario = findViewById(R.id.et_user);
