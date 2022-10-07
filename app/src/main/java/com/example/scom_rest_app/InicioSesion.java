@@ -1,6 +1,8 @@
 package com.example.scom_rest_app;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,6 +37,9 @@ public class InicioSesion extends AppCompatActivity {
     TextInputEditText etUsuario;
     TextInputEditText etPassword;
 
+    TextInputLayout tiLayoutUsuario;
+    TextInputLayout tiLayoutPassword;
+
     MaterialButton btnIniciarSesion;
     MaterialButton btnIniciarInvitado;
     MaterialButton btnCrearCuenta;
@@ -47,11 +54,48 @@ public class InicioSesion extends AppCompatActivity {
         etUsuario = findViewById(R.id.et_user);
         etPassword = findViewById(R.id.et_password);
 
+        etUsuario.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                tiLayoutUsuario.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        etPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                tiLayoutPassword.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        tiLayoutUsuario = findViewById(R.id.ti_layout_usuario);
+        tiLayoutPassword = findViewById(R.id.ti_layout_password);
+
         btnIniciarSesion = findViewById(R.id.btn_iniciar_Sesion);
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //cpiCargando.setVisibility(View.VISIBLE);
+                cambiarEstadoFormulario(View.GONE, View.VISIBLE);
                 Api.getClient().iniciarSesion(
                         etUsuario.getText().toString(),
                         etPassword.getText().toString(),
@@ -66,9 +110,21 @@ public class InicioSesion extends AppCompatActivity {
                                     JSONObject object = new JSONObject(result.trim());
                                     JSONObject data = object.getJSONObject("data");
                                     JSONArray error = object.getJSONArray("error");
-                                    Toast.makeText(InicioSesion.this, "INICIO SESION: "+object.toString(), Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(InicioSesion.this, "INICIO SESION: "+error.toString(), Toast.LENGTH_SHORT).show();
                                     if(data.length()==0){
-                                        Toast.makeText(InicioSesion.this, "Datos Incorrectos", Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(InicioSesion.this, "Datos Incorrectos: "+error.toString(), Toast.LENGTH_SHORT).show();
+                                        Log.d("INICIAR SESION","Error Data : "+error.toString());
+                                        if(error.toString().toLowerCase().indexOf("usuario")!=(-1)){
+                                            //Toast.makeText(InicioSesion.this, "Usuario", Toast.LENGTH_SHORT).show();
+                                            Log.d("INICIAR SESION",""+error.get(0).toString());
+                                            tiLayoutUsuario.setErrorEnabled(true);
+                                            tiLayoutUsuario.setError(error.get(0).toString());
+                                        }else if(error.toString().toLowerCase().indexOf("contraseña")!=(-1)){
+                                            //Toast.makeText(InicioSesion.this, "Contraseña", Toast.LENGTH_SHORT).show();
+                                            Log.d("INICIAR SESION",""+error.get(0).toString());
+                                            tiLayoutPassword.setErrorEnabled(true);
+                                            tiLayoutPassword.setError(error.get(0).toString());
+                                        }
                                         /*String passError = null;
                                         toggleTextInputLayoutError(etUsuario,"error");
                                         etUsuario.setError("Error");*/
@@ -97,11 +153,13 @@ public class InicioSesion extends AppCompatActivity {
                                 }catch(Exception e){
                                     Log.d("INICIAR SESION","Error: "+e.getMessage().toString());
                                 }
+                                cambiarEstadoFormulario(View.VISIBLE,View.GONE);
                             }
 
                             @Override
                             public void failure(RetrofitError error) {
                                 Toast.makeText(InicioSesion.this, "INICIO SESION: Error de Conexion "+error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                                cambiarEstadoFormulario(View.VISIBLE,View.GONE);
                             }
                         }
                 );
@@ -123,9 +181,10 @@ public class InicioSesion extends AppCompatActivity {
         });
     }
 
-    private static void toggleTextInputLayoutError(@NonNull TextInputLayout textInputLayout,
-                                                   String msg) {
-        textInputLayout.setError(msg);
-        textInputLayout.setErrorEnabled(msg != null);
+    private void cambiarEstadoFormulario(int card, int progress) {
+        CardView layoutBase = findViewById(R.id.layout_base);
+        layoutBase.setVisibility(card);
+        CircularProgressIndicator cargando = findViewById(R.id.cpi_cargando);
+        cargando.setVisibility(progress);
     }
 }
