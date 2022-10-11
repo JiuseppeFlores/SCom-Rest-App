@@ -1,4 +1,4 @@
-package com.example.scom_rest_app.ui.slideshow;
+package com.example.scom_rest_app.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

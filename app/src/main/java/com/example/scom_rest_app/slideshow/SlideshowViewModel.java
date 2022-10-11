@@ -1,4 +1,4 @@
-package com.example.scom_rest_app.ui.slideshow;
+package com.example.scom_rest_app.slideshow;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
