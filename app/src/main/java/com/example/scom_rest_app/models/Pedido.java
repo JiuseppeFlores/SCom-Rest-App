@@ -1,46 +1,37 @@
 package com.example.scom_rest_app.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.SimpleTimeZone;
 
 public class Pedido {
-    private int ciCamarero;
-    private int ciChef;
-    private int codFactura;
+    private int idpedido;
     private String estado;
     private String fecha;
-    private int idpedido;
+    private int ciCamarero;
+    private int codFactura;
+    private int ciChef;
+    private String hora;
 
-    public Pedido(int ciCamarero, int ciChef, int codFactura, String estado, String fecha, int idpedido) {
-        this.ciCamarero = ciCamarero;
-        this.ciChef = ciChef;
-        this.codFactura = codFactura;
+    public Pedido(String estado, String fecha, int ciCamarero, int codFactura, int ciChef) {
         this.estado = estado;
-        this.fecha = fecha;
-        this.idpedido = idpedido;
-    }
-
-    public int getCiCamarero() {
-        return ciCamarero;
-    }
-
-    public void setCiCamarero(int ciCamarero) {
+        this.fecha = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        this.hora = "0:00";
         this.ciCamarero = ciCamarero;
-    }
-
-    public int getCiChef() {
-        return ciChef;
-    }
-
-    public void setCiChef(int ciChef) {
         this.ciChef = ciChef;
-    }
-
-    public int getCodFactura() {
-        return codFactura;
-    }
-
-    public void setCodFactura(int codFactura) {
         this.codFactura = codFactura;
+
+        //Date datoFecha = new Date();
+        //this.fecha = datoFecha.getTime();
+
+    }
+
+    public int getIdpedido() {
+        return idpedido;
+    }
+
+    public void setIdpedido(int idpedido) {
+        this.idpedido = idpedido;
     }
 
     public String getEstado() {
@@ -59,11 +50,35 @@ public class Pedido {
         this.fecha = fecha;
     }
 
-    public int getIdpedido() {
-        return idpedido;
+    public int getCiCamarero() {
+        return ciCamarero;
     }
 
-    public void setIdpedido(int idpedido) {
-        this.idpedido = idpedido;
+    public void setCiCamarero(int ciCamarero) {
+        this.ciCamarero = ciCamarero;
+    }
+
+    public int getCodFactura() {
+        return codFactura;
+    }
+
+    public void setCodFactura(int codFactura) {
+        this.codFactura = codFactura;
+    }
+
+    public int getCiChef() {
+        return ciChef;
+    }
+
+    public void setCiChef(int ciChef) {
+        this.ciChef = ciChef;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 }

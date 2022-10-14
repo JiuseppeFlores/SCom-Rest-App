@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/font_inisesion" />
+            app:srcCompat="@drawable/ic_account_circle" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -216,5 +216,9 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:visibility="gone" />
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 

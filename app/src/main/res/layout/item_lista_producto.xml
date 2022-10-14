@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvMisCompras"
+        android:id="@+id/cv_item_producto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -91,10 +91,11 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:fontFamily="@font/amarante"
-                        android:text="Bs. 20.00"
+                        android:text="Total:Bs. 20.00"
                         android:textColor="#302E2E"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone"/>
 
                     <ImageView
                         android:id="@+id/iv_decrementar"

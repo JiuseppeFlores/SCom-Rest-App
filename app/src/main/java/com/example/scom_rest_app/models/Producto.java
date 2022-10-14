@@ -6,6 +6,19 @@ public class Producto {
     private String nombre;
     private double precio;
     private String tipoProducto;
+    private boolean carrito;
+
+    public boolean isCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(boolean carrito) {
+        this.carrito = carrito;
+    }
+
+    public boolean getCarrito() {
+        return this.carrito;
+    }
 
     public Producto(){
 
@@ -16,6 +29,7 @@ public class Producto {
         this.nombre = nombre;
         this.precio = precio;
         this.tipoProducto = tipo;
+        this.carrito = false;
     }
 
     public int getIdProducto() {
