@@ -25,6 +25,7 @@
         android:backgroundTint="@color/success"
         />
     <TextView
+        android:visibility="gone"
         android:text="Costo Total: 0 Bs."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

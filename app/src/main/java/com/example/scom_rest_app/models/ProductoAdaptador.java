@@ -1,5 +1,7 @@
 package com.example.scom_rest_app.models;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,19 +9,29 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.scom_rest_app.AdaptadorListaProductosListener;
+import com.example.scom_rest_app.HomeCliente;
 import com.example.scom_rest_app.R;
+import com.example.scom_rest_app.databinding.HomeClienteBinding;
+import com.google.android.material.card.MaterialCardView;
 
 public class ProductoAdaptador extends RecyclerView.Adapter<ProductoAdaptador.ViewHolder> {
 
     private Producto[] listaProductos;
+    /*private AdaptadorListaProductosListener listener;*/
 
     public ProductoAdaptador(Producto[] listaProductos) {
         this.listaProductos = listaProductos;
     }
+/*
+    public void setListener(AdaptadorListaProductosListener listener){
+        this.listener = listener;
+    }*/
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,11 +42,40 @@ public class ProductoAdaptador extends RecyclerView.Adapter<ProductoAdaptador.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final Producto listaProducto = listaProductos[position];
-        holder.nombreProducto.setText(listaProductos[position].getNombre());
-        holder.precio.setText("Bs. "+listaProductos[position].getPrecio());
+        holder.nombreProducto.setText(listaProductos[position].getNombre()+"\n"+"Bs. "+listaProductos[position].getPrecio());
+        holder.precio.setText("Total:Bs. "+listaProductos[position].getPrecio());
         holder.cantidad.setText("0");
+
+        holder.botonAdicionarCarrito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.botonAdicionarCarrito.setVisibility(View.GONE);
+                holder.botonEliminarCarrito.setVisibility(View.VISIBLE);
+                holder.botonIncrementar.setVisibility(View.VISIBLE);
+                holder.cantidad.setVisibility(View.VISIBLE);
+                holder.cantidad.setText("1");
+                holder.precio.setVisibility(View.VISIBLE);
+                listaProductos[position].setCarrito(true);
+                //holder.cvItemProducto.setBackgroundColor(R.color.fourth);
+            }
+        });
+        holder.botonEliminarCarrito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.botonEliminarCarrito.setVisibility(View.GONE);
+                holder.botonAdicionarCarrito.setVisibility(View.VISIBLE);
+                holder.botonIncrementar.setVisibility(View.GONE);
+                holder.botonDecrementar.setVisibility(View.GONE);
+                holder.cantidad.setVisibility(View.GONE);
+                double costo = Double.parseDouble(holder.precio.getText().toString().split(" ")[1])/Integer.parseInt(holder.cantidad.getText().toString());
+                holder.precio.setText(String.valueOf(holder.precio.getText().toString().split(" ")[0]+" "+costo));
+                holder.cantidad.setText("0");
+                holder.precio.setVisibility(View.GONE);
+                listaProductos[position].setCarrito(false);
+            }
+        });
     }
 
     @Override
@@ -53,6 +94,7 @@ public class ProductoAdaptador extends RecyclerView.Adapter<ProductoAdaptador.Vi
         private ImageView botonDecrementar;
         private ImageView botonIncrementar;
         private TextView cantidad;
+        private MaterialCardView cvItemProducto;
 
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -64,30 +106,8 @@ public class ProductoAdaptador extends RecyclerView.Adapter<ProductoAdaptador.Vi
             this.botonDecrementar = (ImageView) itemView.findViewById(R.id.iv_decrementar);
             this.botonIncrementar = (ImageView) itemView.findViewById(R.id.iv_incrementar);
             this.cantidad = (TextView) itemView.findViewById(R.id.et_cantidad);
-            /*INICIALIZANDO LAS FUNCIONES INICIALES*/
-            this.botonAdicionarCarrito.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    botonAdicionarCarrito.setVisibility(View.GONE);
-                    botonEliminarCarrito.setVisibility(View.VISIBLE);
-                    botonIncrementar.setVisibility(View.VISIBLE);
-                    cantidad.setVisibility(View.VISIBLE);
-                    cantidad.setText("1");
-                }
-            });
-            this.botonEliminarCarrito.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    botonEliminarCarrito.setVisibility(View.GONE);
-                    botonAdicionarCarrito.setVisibility(View.VISIBLE);
-                    botonIncrementar.setVisibility(View.GONE);
-                    botonDecrementar.setVisibility(View.GONE);
-                    cantidad.setVisibility(View.GONE);
-                    double costo = Double.parseDouble(precio.getText().toString().split(" ")[1])/Integer.parseInt(cantidad.getText().toString());
-                    precio.setText(String.valueOf(precio.getText().toString().split(" ")[0]+" "+costo));
-                    cantidad.setText("0");
-                }
-            });
+            this.cvItemProducto = (MaterialCardView) itemView.findViewById(R.id.cv_item_producto);
+
             this.botonIncrementar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

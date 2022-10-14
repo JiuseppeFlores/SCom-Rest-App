@@ -43,7 +43,7 @@ public class CrearUsuario extends AppCompatActivity {
         btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Api.getClient().crearCuenta(
+                /*Api.getClient().crearCuenta(
                         etCI.getText().toString(),
                         etUsuario.getText().toString(),
                         etPassword.getText().toString(),
@@ -67,9 +67,6 @@ public class CrearUsuario extends AppCompatActivity {
                                     Toast.makeText(CrearUsuario.this, "CREAR USUARIO: " + object.toString(), Toast.LENGTH_SHORT).show();
                                     if (data.length() == 0) {
                                         Toast.makeText(CrearUsuario.this, "Datos Incorrectos", Toast.LENGTH_SHORT).show();
-                                        /*String passError = null;
-                                        toggleTextInputLayoutError(etUsuario,"error");
-                                        etUsuario.setError("Error");*/
                                     } else {
                                         Toast.makeText(CrearUsuario.this, "Iniciando Sesion: " + data.toString(), Toast.LENGTH_SHORT).show();
                                         String tipoUsuario = data.getString("tipoUsuario");
@@ -102,7 +99,7 @@ public class CrearUsuario extends AppCompatActivity {
                                 Toast.makeText(CrearUsuario.this, "CREAR USUARIO: Error de Conexion " + error.getMessage().toString(), Toast.LENGTH_SHORT).show();
                             }
                         }
-                );
+                );*/
             }
         });
     }
