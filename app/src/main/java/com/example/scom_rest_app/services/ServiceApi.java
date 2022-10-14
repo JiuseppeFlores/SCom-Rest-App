@@ -29,8 +29,16 @@ public interface ServiceApi {
     @FormUrlEncoded
     @POST("/cliente")
     public void crearCuenta(
+            @Field("ci") String ci,
             @Field("user") String user,
             @Field("password") String password,
+            @Field("email") String email,
+            @Field("name") String name,
+            @Field("apellidoPat") String apellidoPat,
+            @Field("apellidoMat") String apellidoMat,
+            @Field("fechaNaci") String fechaNaci,
+            @Field("nit") String nit,
+            @Field("estado") String estado,
             Callback<Response> response
     );
 }

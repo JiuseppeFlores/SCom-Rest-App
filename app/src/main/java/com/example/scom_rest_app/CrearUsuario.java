@@ -53,6 +53,7 @@ public class CrearUsuario extends AppCompatActivity {
                         etApellidoMat.getText().toString(),
                         etFechaNaci.getText().toString(),
                         etNIT.getText().toString(),
+                        "habilitado",
                         new Callback<Response>() {
                             @Override
                             public void success(Response response, Response response2) {
