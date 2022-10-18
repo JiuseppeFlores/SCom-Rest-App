@@ -1,5 +1,7 @@
 package com.example.scom_rest_app;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -129,24 +131,35 @@ public class InicioSesion extends AppCompatActivity {
                                         toggleTextInputLayoutError(etUsuario,"error");
                                         etUsuario.setError("Error");*/
                                     }else{
-                                        Toast.makeText(InicioSesion.this, "Iniciando Sesion: "+data.toString(), Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(InicioSesion.this, "Iniciando Sesion: "+data.toString(), Toast.LENGTH_SHORT).show();
                                         String tipoUsuario = data.getString("tipoUsuario");
-                                        Log.d("INICIO SESION",tipoUsuario);
+                                        //Log.d("INICIO SESION",tipoUsuario);
+
+                                        SharedPreferences sesion = getSharedPreferences("SComRestApp", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sesion.edit();
+                                        editor.putString("user",data.getString("nombreUsuario"));
+                                        editor.putString("password",data.getString("contraseña"));
+                                        editor.putString("tipo",data.getString("tipoUsuario"));
+                                        editor.commit();
+
                                         switch(tipoUsuario){
                                             case "cliente":
-                                                Toast.makeText(InicioSesion.this, "Tipo de usuario: CLIENTE", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(InicioSesion.this, "Tipo de usuario: CLIENTE", Toast.LENGTH_SHORT).show();
                                                 Intent cliente = new Intent(InicioSesion.this, HomeCliente.class);
                                                 startActivity(cliente);
+                                                finish();
                                                 break;
                                             case "chef":
-                                                Toast.makeText(InicioSesion.this, "Tipo de usuario: CHEF", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(InicioSesion.this, "Tipo de usuario: CHEF", Toast.LENGTH_SHORT).show();
                                                 Intent chef = new Intent(InicioSesion.this, HomeChef.class);
                                                 startActivity(chef);
+                                                finish();
                                                 break;
                                             case "camarero":
-                                                Toast.makeText(InicioSesion.this, "Tipo de usuario: CAMARERO", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(InicioSesion.this, "Tipo de usuario: CAMARERO", Toast.LENGTH_SHORT).show();
                                                 Intent camarero = new Intent(InicioSesion.this, HomeCamarero.class);
                                                 startActivity(camarero);
+                                                finish();
                                                 break;
                                         }
                                     }

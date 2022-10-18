@@ -1,5 +1,7 @@
 package com.example.scom_rest_app.services;
 
+import org.json.JSONObject;
+
 import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.Field;
@@ -16,8 +18,8 @@ public interface ServiceApi {
             Callback<Response> response
     );
 
-    @GET("/productos")
-    public void obtenerProductos(
+    @GET("/productos?estado=habilitado")
+    public void obtenerProductosHabilitados(
             Callback<Response> response
     );
 
@@ -31,6 +33,27 @@ public interface ServiceApi {
     public void crearCuenta(
             @Field("user") String user,
             @Field("password") String password,
+            Callback<Response> response
+    );
+
+    @FormUrlEncoded
+    @POST("/crearpedido")
+    public void realizarPedido(
+            @Field("estado") String estado,
+            @Field("fecha") String fecha,
+            @Field("productos") String productos,
+            Callback<Response> response
+    );
+
+    @FormUrlEncoded
+    @POST("/obtenerproducto")
+    public void obtenerProducto(
+            @Field("idProducto") int idProducto,
+            Callback<Response> response
+    );
+
+    @GET("/mesas")
+    public void obtenerMesas(
             Callback<Response> response
     );
 }

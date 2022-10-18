@@ -50,12 +50,12 @@ public class HomeCamarero extends AppCompatActivity {
                     for(int i=0;i<data.length();i++){
                         JSONObject pedidoApi = data.getJSONObject(i);
                         pedido[i] = new Pedido(
-                                pedidoApi.getInt("ciCamarero"),//idProducto
-                                pedidoApi.getInt("ciChef"),//estado
-                                pedidoApi.getInt("codfactura"),//nombre
+                                //pedidoApi.getInt("ciCamarero"),//idProducto
+                                //pedidoApi.getInt("ciChef"),//estado
+                                //pedidoApi.getInt("codfactura"),//nombre
                                 pedidoApi.getString("estado"),//precio
-                                pedidoApi.getString("fecha"),//tipoProducto
-                                pedidoApi.getInt("idpedido")
+                                pedidoApi.getString("fecha")/*,//tipoProducto
+                                pedidoApi.getInt("idpedido")*/
                         );
                     }
 

@@ -1,5 +1,6 @@
 package com.example.scom_rest_app.models;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.SimpleTimeZone;
@@ -11,19 +12,16 @@ public class Pedido {
     private int ciCamarero;
     private int codFactura;
     private int ciChef;
-    private String hora;
+    private Array productos;
 
-    public Pedido(String estado, String fecha, int ciCamarero, int codFactura, int ciChef) {
+    public Pedido(){
         this.estado = estado;
-        this.fecha = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        this.hora = "0:00";
-        this.ciCamarero = ciCamarero;
-        this.ciChef = ciChef;
-        this.codFactura = codFactura;
+        this.fecha = fecha;
+    }
 
-        //Date datoFecha = new Date();
-        //this.fecha = datoFecha.getTime();
-
+    public Pedido(String estado, String fecha) {
+        this.estado = estado;
+        this.fecha = fecha;
     }
 
     public int getIdpedido() {
@@ -72,13 +70,5 @@ public class Pedido {
 
     public void setCiChef(int ciChef) {
         this.ciChef = ciChef;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
     }
 }

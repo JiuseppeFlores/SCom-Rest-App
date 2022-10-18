@@ -7,6 +7,25 @@ public class Producto {
     private double precio;
     private String tipoProducto;
     private boolean carrito;
+    private int cantidad;
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    private String imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public boolean isCarrito() {
         return carrito;
@@ -20,16 +39,15 @@ public class Producto {
         return this.carrito;
     }
 
-    public Producto(){
-
-    }
-    public Producto(int id, String estado, String nombre, double precio, String tipo){
+    public Producto(int id, String estado, String nombre, double precio, String tipo, String imagen){
         this.idProducto = id;
         this.estado = estado;
         this.nombre = nombre;
         this.precio = precio;
         this.tipoProducto = tipo;
         this.carrito = false;
+        this.imagen = imagen;
+        this.cantidad = 0;
     }
 
     public int getIdProducto() {

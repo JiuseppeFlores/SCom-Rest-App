@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mn_actualizar"
+        android:title="Actualizar Productos"
+        android:icon="@drawable/ic_actualizar"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/mn_salir"
+        android:title="Cerrar Sesión"
+        android:icon="@drawable/ic_salir"
+        app:showAsAction="always"/>
+</menu>

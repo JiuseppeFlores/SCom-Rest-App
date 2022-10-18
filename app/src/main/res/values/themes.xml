@@ -22,4 +22,5 @@
     <style name="Theme.SComRestApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SComRestApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
