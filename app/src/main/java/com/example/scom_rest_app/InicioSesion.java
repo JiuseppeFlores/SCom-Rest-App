@@ -140,6 +140,7 @@ public class InicioSesion extends AppCompatActivity {
                                         editor.putString("user",data.getString("nombreUsuario"));
                                         editor.putString("password",data.getString("contraseña"));
                                         editor.putString("tipo",data.getString("tipoUsuario"));
+                                        editor.putString("ci",data.getString("ci"));
                                         editor.commit();
 
                                         switch(tipoUsuario){

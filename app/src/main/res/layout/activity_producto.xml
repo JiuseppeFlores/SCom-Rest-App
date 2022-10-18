@@ -15,7 +15,7 @@
             android:background="@color/primary"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:title="Nombre Producto"
+            app:title="Producto"
             app:titleTextColor="@color/white"
             app:theme="@style/Theme.AppCompat"
             app:navigationIcon="?attr/homeAsUpIndicator"

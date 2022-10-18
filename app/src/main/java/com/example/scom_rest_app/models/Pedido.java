@@ -6,30 +6,42 @@ import java.util.Date;
 import java.util.SimpleTimeZone;
 
 public class Pedido {
-    private int idpedido;
+    private int idPedido;
     private String estado;
     private String fecha;
+    private int idMesa;
     private int ciCamarero;
     private int codFactura;
     private int ciChef;
     private Array productos;
 
-    public Pedido(){
+    public Pedido(int idPedido, String estado, String fecha, int mesa) {
+        this.idPedido = idPedido;
         this.estado = estado;
         this.fecha = fecha;
+        this.idMesa = mesa;
     }
 
-    public Pedido(String estado, String fecha) {
+    public Pedido(String estado, String fecha, int mesa) {
         this.estado = estado;
         this.fecha = fecha;
+        this.idMesa = mesa;
     }
 
-    public int getIdpedido() {
-        return idpedido;
+    public int getIdMesa() {
+        return idMesa;
     }
 
-    public void setIdpedido(int idpedido) {
-        this.idpedido = idpedido;
+    public void setIdMesa(int idMesa) {
+        this.idMesa = idMesa;
+    }
+
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(int idpedido) {
+        this.idPedido = idpedido;
     }
 
     public String getEstado() {

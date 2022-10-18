@@ -158,13 +158,14 @@ public class HomeCliente extends AppCompatActivity implements DialogoFragmentPed
 
                             Date date = new Date();
                             SimpleDateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
-                            Pedido pedido = new Pedido("espera",fecha.format(date));
+                            Pedido pedido = new Pedido("espera",fecha.format(date),Integer.parseInt(mesa));
 
                             JSONObject prod = new JSONObject(productos);
                             Log.d("PRODUCTOS",prod.toString());
                             Api.getClient().realizarPedido(
                                     pedido.getEstado(),
                                     pedido.getFecha(),
+                                    pedido.getIdMesa(),
                                     prod.toString(),
                                     new Callback<Response>() {
                                         @Override
@@ -176,8 +177,8 @@ public class HomeCliente extends AppCompatActivity implements DialogoFragmentPed
                                                 result = reader.readLine();
                                                 JSONObject object = new JSONObject(result.trim());
                                                 int id = object.getInt("data");
-                                                pedido.setIdpedido(id);
-                                                Log.d("PEDIDO",String.valueOf(pedido.getIdpedido()));
+                                                pedido.setIdPedido(id);
+                                                Log.d("PEDIDO",String.valueOf(pedido.getIdPedido()));
                                                 btnRealizarPedido.setEnabled(true);
                                                 Toast.makeText(HomeCliente.this, "Pedido Realizado con Éxito!, espere a nuestro camarero por favor", Toast.LENGTH_SHORT).show();
                                             }catch(Exception e){
@@ -211,6 +212,8 @@ public class HomeCliente extends AppCompatActivity implements DialogoFragmentPed
                 BufferedReader reader = null;
                 String result = "";
                 try {
+                    listaPlatillos.clear();
+                    listaBebidas.clear();
                     reader = new BufferedReader(new InputStreamReader(response.getBody().in()));
                     result = reader.readLine();
                     JSONObject object = new JSONObject(result.trim());
@@ -333,6 +336,7 @@ public class HomeCliente extends AppCompatActivity implements DialogoFragmentPed
                         editor.putString("user","");
                         editor.putString("password","");
                         editor.putString("tipo","");
+                        editor.putString("ci","");
                         editor.commit();
                         Intent intent = new Intent(HomeCliente.this,SplashScreen.class);
                         startActivity(intent);

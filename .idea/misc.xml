@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_chef.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cliente.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_pedido.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_producto.xml" value="0.22" />
         <entry key="app/src/main/res/layout/app_bar_cliente.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.19322916666666667" />
@@ -20,9 +21,11 @@
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/fragment_bebidas.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/fragment_dialogo_pedido.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_nuevos.xml" value="0.21" />
         <entry key="app/src/main/res/layout/fragment_platillos.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/fragment_por_entregar.xml" value="0.10677083333333333" />
         <entry key="app/src/main/res/layout/home_camarero.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/home_chef.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/home_chef.xml" value="0.22" />
         <entry key="app/src/main/res/layout/home_cliente.xml" value="0.22" />
         <entry key="app/src/main/res/layout/inicio_sesion.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_lista_pedido.xml" value="0.22" />

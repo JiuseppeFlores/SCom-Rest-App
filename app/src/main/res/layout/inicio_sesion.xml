@@ -88,7 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:backgroundTint="@color/third"
+                        android:backgroundTint="@color/success"
                         android:padding="15dp"
                         android:text="Iniciar Sesion"
                         app:cornerRadius="100dp" />
@@ -103,7 +103,8 @@
                         android:padding="15dp"
                         android:text="Ingresar como invitado"
                         android:textColor="@color/white"
-                        app:cornerRadius="100dp" />
+                        app:cornerRadius="100dp"
+                        android:visibility="gone"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_crear_cuenta"
@@ -115,7 +116,9 @@
                         android:text="Crear Cuenta"
                         android:textColor="@color/white"
                         app:cornerRadius="100dp"
-                        android:backgroundTint="@color/success"/>
+                        android:backgroundTint="@color/third"
+                        android:visibility="gone"/>
+
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>

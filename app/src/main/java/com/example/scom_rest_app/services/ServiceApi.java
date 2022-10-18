@@ -49,6 +49,7 @@ public interface ServiceApi {
     public void realizarPedido(
             @Field("estado") String estado,
             @Field("fecha") String fecha,
+            @Field("idMesa") int idMesa,
             @Field("productos") String productos,
             Callback<Response> response
     );
@@ -62,6 +63,37 @@ public interface ServiceApi {
 
     @GET("/mesas")
     public void obtenerMesas(
+            Callback<Response> response
+    );
+
+    @FormUrlEncoded
+    @POST("/obtenerPedido")
+    public void obtenerPedido(
+            @Field("idPedido") int idPedido,
+            Callback<Response> response
+    );
+
+    @FormUrlEncoded
+    @POST("/confirmarPedido")
+    public void confirmarPedido(
+            @Field("idPedido") int idPedido,
+            @Field("ciCamarero") int ciCamarero,
+            Callback<Response> response
+    );
+
+    @FormUrlEncoded
+    @POST("/cancelarPedido")
+    public void cancelarPedido(
+            @Field("idPedido") int idPedido,
+            @Field("ciCamarero") int ciCamarero,
+            Callback<Response> response
+    );
+
+    @FormUrlEncoded
+    @POST("/entregarPedido")
+    public void entregarPedido(
+            @Field("idPedido") int idPedido,
+            @Field("ciCamarero") int ciCamarero,
             Callback<Response> response
     );
 }
